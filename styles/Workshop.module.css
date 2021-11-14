@@ -6,10 +6,104 @@
   margin: 0 auto;
 }
 
-.GroupTypeBox {
+.HeadingSection {
+  color: var(--dark);
+}
+
+.Subtitle {
+  font-size: var(--font-md);
+  border-left: 5px solid var(--gray);
+  line-height: var(--font-lg);
+  padding-left: 16px;
+}
+.IntroList {
+}
+.IntroList li {
+  font-size: var(--font-md);
+  line-height: 40px;
+}
+.IntroList li:before {
+  font-size: var(--font-sm);
+  height: 5px;
+  width: 5px;
+  margin-right: 10px;
+  content: 'X';
+  font-family: var(--font-exo);
+  color: var(--pink);
+}
+
+.WorkshopGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-areas:
+    'heading heading'
+    'first second';
+  gap: 16px;
+}
+
+.WorkshopGridTitle {
+  grid-area: heading;
   background: var(--pink);
-  padding: var(--spacing3) var(--spacing3);
+  padding: var(--spacing2);
   color: white;
 }
-.GroupRow {
+
+.WorkshopGridFirst {
+  grid-area: first;
+}
+
+.WorkshopGridSecond {
+  grid-area: second;
+}
+
+.WorkshopGridBox {
+  background: var(--dark);
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.WorkshopGridHeader {
+  background: var(--pink);
+  padding: var(--spacing2);
+}
+.WorkshopGridContent {
+  padding: var(--spacing2);
+  white-space: pre-line;
+}
+
+.CtaBox {
+  background: var(--pink);
+  color: white;
+  padding: var(--spacing2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
+}
+
+.WorkshopCTAContainerFirst {
+  grid-area: cta1;
+}
+
+.WorkshopCTAContainerSecond {
+  grid-area: cta2;
+}
+
+.CtaButton {
+  padding: var(--spacing2) var(--spacing3);
+  background: white;
+  color: var(--dark);
+  border: none;
+}
+
+.FaqContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.ContactUsForm {
+  /* width: 100vw;
+  margin-left: calc((100% - 100vw) / 2); */
 }

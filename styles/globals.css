@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Exo:400,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;700&display=swap');
 @import url('https://assets.juicer.io/embed.css');
 @import 'react-image-gallery/styles/css/image-gallery.css';
+
 :root {
   --pink: #af4173;
   --blue: #2e86ab;
@@ -10,7 +11,8 @@
   --gradientPink: linear-gradient(135deg, #743e57, #c41e69),
     linear-gradient(180deg, #af4173, #af4173);
   --gradientPinkBlue: linear-gradient(3deg, #2e86ab, #af4173 67%);
-  --gray: #404047;
+  --dark: #404047;
+  --gray: #b4b4b4;
 
   --spacing1: 0.5em;
   --spacing2: 1em;
@@ -37,7 +39,7 @@
   --font-xxl: 48px;
 
   --font-monoton: 'Monoton', sans-serif;
-  --font-exo: 'Exo', sans-serif;
+  --font-exo: 'Exo 2', sans-serif;
 }
 
 html,
@@ -67,14 +69,21 @@ h5 {
 
 h1 {
   font-size: var(--font-xxl);
+  font-weight: 700;
+}
+h2 {
+  font-size: var(--font-xl);
   font-weight: 600;
 }
-h2,
 h3 {
-  font-size: var(--font-xl);
+  font-size: var(--font-lg);
+  font-weight: 600;
 }
 h4 {
-  font-size: var(--font-lg);
+  font-size: var(--font-md);
+}
+h5 {
+  font-size: var(--font-sm);
 }
 
 p,
@@ -90,6 +99,21 @@ ul {
   padding: 0;
   text-indent: 0;
   list-style-type: 0;
+}
+
+button {
+  padding: var(--spacing2) var(--spacing3);
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+input,
+select,
+textarea {
+  padding: var(--spacing1);
+  border-radius: 5px;
+  border: 1px solid var(--gray);
 }
 
 * {

@@ -1,0 +1,46 @@
+.Container {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  /* grid-template-areas:
+    'name phone'
+    'email company'
+    'preferredDate particpantsAmount'
+    'workshopType howDidYouHear'
+    'message message'; */
+  gap: 16px;
+}
+
+.LabelContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.Warning {
+  color: var(--pink);
+  font-weight: 600;
+}
+.LabelContainer input,
+.LabelContainer select,
+.LabelContainer textarea {
+  width: 100%;
+  margin-top: var(--spacing1);
+}
+
+.LabelContainer:last-child {
+  grid-column: span 2;
+}
+
+.SubmitButton {
+  margin-top: var(--spacing3);
+  background: var(--pink);
+  color: white;
+  min-width: 200px;
+}
+
+.DoneBox {
+  background: var(--pink);
+  color: white;
+  font-family: var(--exo);
+  padding: var(--spacing1);
+  border-radius: 5px;
+}

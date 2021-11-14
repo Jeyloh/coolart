@@ -133,7 +133,7 @@
     }
   },
   "workshop": {
-    "title": "Workshops",
+    "title": "WORKSHOPS",
     "subtitle": "Learn Graffiti in Kristiansand",
     "bodyList": [
       "LEARN GRAFFITI AND STREET ART IN OUR CITY CENTRE WAREHOUSE STUDIO",
@@ -145,7 +145,7 @@
     "types": {
       "title": "WE HOST GROUPS OF 5 TO 50 PEOPLE",
       "general": {
-        "title": "Draw, Grafitti, Stencil",
+        "title": "DRAW, GRAFITTI, STENCIL",
         "sections": [
           {
             "title": "Draw",
@@ -159,20 +159,32 @@
             "title": "Stencil",
             "body": "This format goes into more details and includes a stencilling workshop where your group will learn how to create and spray paint your own stencil along with learning all the basic spray paint skills. Each person will get to take home a finished stencil"
           }
-        ]
+        ],
+        "price": "1000 kr / person",
+        "duration": "Duration: 2,5 hours",
+        "contact": "Contact"
       },
       "battle": {
         "title": "GRAFFITI BATTLE",
-        "body": "The ultimate workshop! Your group is split into teams and a theme is chosen by your captain. You must then create the best piece of work possible (under guidance of our graffiti experts) before the battle timer hits zero!  When the time is up you must down your spray paint and the judges will choose a winner. Best team are crowned the champs!"
+        "subtitle": "The ultimate workshop!",
+        "content": [
+          "Your group is split into teams and a theme/topic is chosen by your captain.",
+          "You must then create the best piece of work possible (under guidance of our graffiti experts) before the battle timer hits zero!",
+          "When the time is up you must put down your spray paint and the judges will choose a winner.",
+          "The best team is crowned champions!"
+        ],
+        "price": "800 kr / person",
+        "duration": "Duration: 2 hours",
+        "contact": "Contact"
       }
     },
     "faq": {
-      "title": "Graffiti Workshops",
+      "title": "Graffiti Workshops FAQ",
 
       "qa": [
         {
           "q": "What should we bring?",
-          "a": "We provide everything you need, just turn up! We do advise against wearing your favourite top or sparkling white Nike&#x27;s. Things never get very messy, but mistakes do sometimes happen!"
+          "a": "We provide everything you need, just turn up! We do advise against wearing your favourite top or sparkling white Nike's. Things never get very messy, but mistakes do sometimes happen!"
         },
         {
           "q": "Where are you located?",
@@ -180,22 +192,94 @@
         },
         {
           "q": "Can we bring drinks?",
-          "a": "You&#x27;re welcome to bring you own drinks for the event. We love to make things easier for you, and drinks can be stored at our locale before the workshop.<br>"
+          "a": "You're welcome to bring you own drinks for the event. We love to make things easier for you, and drinks can be stored at our locale before the workshop.\n"
         },
         {
           "q": "How about food?",
-          "a": "We thought you&#x27;d never ask! If your group requires food, let us know. Our locale is right by Fiskebrygga and all the restaurants there. <br><br>Either make arrangements yourself, or pre-order through us and we&#x27;ll organise everything for your group. Easy! <br>"
+          "a": "We thought you'd never ask! If your group requires food, let us know. Our locale is right by Fiskebrygga and all the restaurants there. \n\nEither make arrangements yourself, or pre-order through us and we'll organise everything for your group. Easy! \n"
         },
         {
           "q": "What if our group is smaller than 50?",
-          "a": "Pricing varies depending on the group size. Our minimum group size is 5 people and we have no real maximum. <br><br>Estimates include 800kr per person for &quot;Draw, Graffiti, Stencil&quot;, and 1000kr per person for &quot;Graffiti Battle&quot;. Get in touch for exact pricing for your group."
+          "a": "Pricing varies depending on the group size. Our minimum group size is 5 people and we have no real maximum. \n\nEstimates include 800kr per person for 'Draw, Graffiti, Stencil', and 1000kr per person for 'Graffiti Battle'. Get in touch for exact pricing for your group."
         },
         {
           "q": "Can we create a custom workshop?",
-          "a": "Absolutely! We customise workshops for groups that want something a bit different. This can be anything from having a large canvas that everyone works together on, then brings back to the office to hang, to creating custom T-shirts. If you have something in mind, we&#x27;re always happy to accommodate if possible.?"
+          "a": "Absolutely! We customise workshops for groups that want something a bit different. This can be anything from having a large canvas that everyone works together on, then brings back to the office to hang, to creating custom T-shirts. If you have something in mind, we're always happy to accommodate if possible.?"
+        }
+      ]
+    },
+    "workshopForm": {
+      "title": "Are you interested in a workshop?",
+      "inputs": [
+        {
+          "id": "name",
+          "label": "Fullt navn",
+          "type": "text",
+          "required": true
+        },
+        {
+          "id": "phone",
+          "label": "Phone number",
+          "type": "text",
+          "required": true
+        },
+        {
+          "id": "email",
+          "label": "Email address",
+          "type": "text",
+          "required": true
+        },
+        {
+          "id": "company",
+          "label": "Company/Organizaation",
+          "type": "text"
+        },
+        {
+          "id": "date",
+          "label": "Preferred date",
+          "type": "date",
+          "placeholder": "dd/mm/yyyy",
+          "required": true
+        },
+        {
+          "id": "participantsAmount",
+          "label": "Amount of participants",
+          "type": "number",
+          "placeholder": "Minimum 5 participants",
+          "required": true
+        },
+        {
+          "id": "workshopType",
+          "label": "Workshop type",
+          "type": "select",
+          "required": true,
+          "options": [
+            {
+              "value": "drawGrafittiStencil",
+              "label": "Draw, Grafitti, Stencil"
+            },
+            {
+              "value": "battle",
+              "label": "Grafitti battle"
+            },
+            {
+              "value": "custom",
+              "label": "Custom workshop"
+            }
+          ]
+        },
+        {
+          "id": "referral",
+          "label": "How did you hear about us?",
+          "type": "text"
+        },
+        {
+          "id": "extraMessage",
+          "label": "Extra information/questions",
+          "type": "textarea"
         }
       ],
-      "answers": []
+      "submitText": "Send workshop request"
     }
   }
 }
