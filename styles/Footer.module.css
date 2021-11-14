@@ -1,0 +1,36 @@
+.Footer {
+  width: 100%;
+  background-color: var(--gray);
+  padding: var(--spacing3) 0;
+}
+
+.Footer * {
+  color: white;
+}
+
+.Wrapper {
+  justify-content: space-between;
+  width: 100%;
+  display: flex;
+  max-width: var(--max-page-width);
+  padding: var(--spacing2);
+  margin: 0 auto;
+}
+
+.Content {
+  width: var(--max-page-width);
+}
+.FooterLinks {
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid white;
+  padding-left: var(--spacing2);
+  width: calc(var(--mainWidth) / 3);
+}
+
+.FooterLinks li {
+  margin: var(--spacing1) 0;
+}
+.FooterLinks li a {
+  font-size: var(--font-md);
+}

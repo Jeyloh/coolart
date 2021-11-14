@@ -1,0 +1,51 @@
+.Header {
+  width: 100%;
+  background-color: var(--pink);
+  z-index: 15;
+}
+
+.Wrapper {
+  max-width: var(--max-page-width);
+  padding: var(--spacing2);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.HeaderIcon {
+  transition: width 300ms ease-in-out;
+  width: 200px;
+}
+
+.HeaderIcon.scrolled {
+  width: 80px;
+}
+
+.Header.scrolled {
+  position: fixed;
+  top: 0;
+}
+
+.Navigation {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.Navigation a {
+  color: white;
+  font-size: var(--font-md);
+  font-family: var(--font-exo);
+  margin-left: var(--spacing2);
+}
+
+@media (max-width: 600px) {
+  .Header {
+    width: 100%;
+    flex-direction: column;
+  }
+  .Navigation {
+    flex-direction: column;
+  }
+}

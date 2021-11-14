@@ -1,0 +1,15 @@
+.Workshop {
+}
+
+.Wrapper {
+  max-width: var(--max-page-width);
+  margin: 0 auto;
+}
+
+.GroupTypeBox {
+  background: var(--pink);
+  padding: var(--spacing3) var(--spacing3);
+  color: white;
+}
+.GroupRow {
+}

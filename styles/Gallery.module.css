@@ -1,0 +1,16 @@
+.Gallery p {
+  line-height: var(--font-lg);
+}
+
+.Wrapper {
+  max-width: var(--max-page-width);
+  margin: 0 auto;
+}
+
+.center {
+  text-align: center;
+}
+
+.Juicer h1 {
+  display: none !important;
+}
