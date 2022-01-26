@@ -1,11 +1,17 @@
 let nodemailer = require('nodemailer');
 let aws = require('@aws-sdk/client-ses');
-let { defaultProvider } = require('@aws-sdk/credential-provider-node');
+
+aws.config.update({
+  credentials: {
+    accessKeyId: process.env.SES_ACCESS_KEY_ID,
+    secretAccessKey: process.env.SES_ACCESS_SECRET,
+  },
+  region: 'eu-central-1',
+});
 
 const ses = new aws.SES({
   apiVersion: '2010-12-01',
   region: 'eu-central-1',
-  defaultProvider,
 });
 
 let transporter = nodemailer.createTransport({
