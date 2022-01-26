@@ -1,5 +1,5 @@
 let nodemailer = require('nodemailer');
-let aws = require('@aws-sdk');
+const aws = require('aws-sdk');
 
 aws.config.update({
   credentials: {
