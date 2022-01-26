@@ -213,7 +213,7 @@
       "inputs": [
         {
           "id": "name",
-          "label": "Fullt navn",
+          "label": "Full name",
           "type": "text",
           "required": true
         },
