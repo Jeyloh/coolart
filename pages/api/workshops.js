@@ -12,10 +12,10 @@ aws.config.update({
 const ses = new aws.SES({
   apiVersion: '2010-12-01',
   region: 'eu-central-1',
-  credentials: {
-    accessKeyId: process.env.SES_ACCESS_KEY_ID,
-    secretAccessKey: process.env.SES_ACCESS_SECRET,
-  },
+  // credentials: {
+  //   accessKeyId: process.env.SES_ACCESS_KEY_ID,
+  //   secretAccessKey: process.env.SES_ACCESS_SECRET,
+  // },
 });
 
 let transporter = nodemailer.createTransport({
@@ -37,7 +37,7 @@ export default function handler(req, res) {
   <p>Extra information: <b>${req.body.extraMessage}</b></p>`;
 
   var mailOptions = {
-    from: 'coolart.no', // sender address
+    from: 'mail.coolart.no', // sender address
     to: 'jorgenlybeck94@gmail.com', // list of receivers
     subject: 'Workshop request: ' + req.body.workshopType, // Subject line
     html: html, // email body
