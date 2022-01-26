@@ -1,4 +1,5 @@
 export default function handler(req, res) {
+  console.log('hi from api/workshops');
   console.log(req, res);
 
   // https://nodemailer.com/message/
@@ -18,6 +19,8 @@ export default function handler(req, res) {
         <p>Extra information: <b>${req.body.extraMessage}</b></p>
       `,
   };
+
+  console.log(JSON.stringify(message));
 
   try {
     res.status(200).json({

@@ -112,7 +112,7 @@ export default function WorkshopForm({ inputs, submitText }) {
       setWarningList([]);
       console.log('submit ', inputObj);
       try {
-        const res = await fetch('http://localhost:3000/api/workshops', {
+        const res = await fetch('/api/workshops', {
           method: 'POST',
           body: JSON.stringify(inputObj),
         });
