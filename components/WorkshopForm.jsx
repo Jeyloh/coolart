@@ -69,6 +69,7 @@ export default function WorkshopForm({ inputs, submitText }) {
   };
 
   const handleSubmit = async (e) => {
+    e.preventDefault();
     const inputObj = {};
     const updatedWarningList = [];
     Object.values(e.target).map((inputElement) => {
