@@ -5,12 +5,15 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { useState, useRef } from 'react';
 import { BiMailSend } from 'react-icons/bi';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 export default function WorkshopForm({ inputs, submitText }) {
   const [startDate, setStartDate] = useState(new Date());
   const [warningList, setWarningList] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isDone, setIsDone] = useState(false);
+
+  const recaptchaRef = useRef();
 
   const renderInputByType = (input) => {
     switch (input.type) {
@@ -68,7 +71,16 @@ export default function WorkshopForm({ inputs, submitText }) {
     handleSubmit();
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmitPreCaptcha = (e) => {
+    e.preventDefault();
+    if (process.env.NODE_ENV === 'development') {
+      handleSubmit();
+    } else {
+      recaptchaRef.current.execute();
+    }
+  };
+
+  const handleSubmit = async () => {
     const inputObj = {};
     const updatedWarningList = [];
     Object.values(e.target).map((inputElement) => {
@@ -127,7 +139,7 @@ export default function WorkshopForm({ inputs, submitText }) {
     );
   } else
     return (
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmitPreCaptcha}>
         <div className={styles.Container}>
           {inputs.map((input) => {
             return (
@@ -146,6 +158,14 @@ export default function WorkshopForm({ inputs, submitText }) {
             );
           })}
         </div>
+        {process.env.NODE_ENV === 'development' ? null : (
+          <ReCAPTCHA
+            ref={recaptchaRef}
+            // size="invisible"
+            sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+            onChange={onReCAPTCHAChange}
+          />
+        )}
         <button className={styles.SubmitButton} type='submit'>
           {isLoading ? <BiMailSend /> : submitText}
         </button>
