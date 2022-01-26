@@ -23,52 +23,6 @@ export default function handler(req, res) {
   <p>Extra information: <b>${req.body.extraMessage}</b></p>
 `;
 
-  // const sesParams = {
-  //   Destination: {
-  //     ToAddresses: ['jorgenlybeck94@gmail.com'],
-  //   },
-  //   Message: {
-  //     Body: {
-  //       Html: {
-  //         Charset: 'UTF-8',
-  //         Data: html,
-  //       },
-  //     },
-  //     Subject: {
-  //       Charset: 'UTF-8',
-  //       Data: 'Test email',
-  //     },
-  //   },
-  //   Source: 'coolart.no',
-  // };
-
-  // ses
-  //   .sendEmail(sesParams)
-  //   .then(() => {
-  //     console.log('sent mail with ses');
-
-  //   })
-  //   .catch((err) => {
-  //     console.log('error sending ses mail');
-
-  //   });
-
-  // https://nodemailer.com/message/
-
-  var transport = nodemailer.createTransport({
-    service: 'SMTP',
-    // Yes. SMTP!
-    host: 'email-smtp.eu-central-1.amazonaws.com', // Amazon email SMTP hostname
-    secureConnection: true, // use SSL
-    port: 2587, // port for secure SMTP
-    auth: {
-      xoauth2: xoauth2.createXOAuth2Generator({
-        user: process.env.SES_USERNAME, // Use from Amazon Credentials
-        pass: process.env.SES_SECRET, // Use from Amazon Credentials
-      }),
-    },
-  });
-
   var mailOptions = {
     from: 'Coolart<coolart.no>', // sender address
     to: 'jorgenlybeck94@gmail.com', // list of receivers
@@ -76,25 +30,24 @@ export default function handler(req, res) {
     html: html, // email body
   };
 
-  // send mail with defined transport object
-  transport.sendMail(mailOptions, function (error, response) {
+  var smtpTransporter = nodemailer.createTransport({
+    port: 465,
+    host: 'eu-central-1',
+    secure: true,
+    auth: {
+      user: process.env.SES_ACCESS_KEY_ID,
+      pass: process.env.SES_ACCESS_SECRET,
+    },
+    debug: true,
+  });
+
+  smtpTransporter.sendMail(mailOptions, (error, info) => {
     if (error) {
       console.log(error);
-
-      res.status(400).json({
-        body: 'ops',
-        query: req.query,
-        cookies: req.cookies,
-      });
+      res.status(error.responseCode).send(error.response);
     } else {
-      console.log('Message sent!');
-      res.status(200).json({
-        body: mailOptions,
-        query: req.query,
-        cookies: req.cookies,
-      });
+      console.log('Message sent: ' + info.response);
+      res.status(200).send(info);
     }
-
-    transport.close(); // shut down the connection pool, no more messages
   });
 }
