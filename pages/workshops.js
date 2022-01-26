@@ -11,12 +11,6 @@ import WorkshopForm from '../components/WorkshopForm';
 export default function Workshop() {
   const [contactForm, setContactForm] = useState();
 
-  const postForm = async () => {
-    const res = await fetch('http://localhost:3000/api/workshops', {
-      method: 'POST',
-      body: {},
-    });
-  };
   return (
     <div className={styles.Workshop}>
       <HtmlHead />
