@@ -71,12 +71,12 @@ export default function WorkshopForm({ inputs, submitText }) {
     handleSubmit();
   };
 
-  const handleSubmitPreCaptcha = () => {
+  const handleSubmitPreCaptcha = (e) => {
     e.preventDefault();
     recaptchaRef.current.execute();
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async () => {
     const inputObj = {};
     const updatedWarningList = [];
     Object.values(e.target).map((inputElement) => {
