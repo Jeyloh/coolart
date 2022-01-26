@@ -41,14 +41,12 @@ export default function handler(req, res) {
 
   // send some mail
   transporter.sendMail(mailOptions, (err, info) => {
-    console.log(info.envelope);
-    console.log(info.messageId);
-    if (error) {
-      console.log(error);
-      res.status(error.responseCode).send(error.response);
+    if (err) {
+      console.log(err);
+      res.status(err.responseCode).send(err.response);
     } else {
-      console.log('Message sent: ' + info.response);
-      res.status(200).send(info);
+      console.log('Message sent');
+      res.status(200).send('OK');
     }
   });
 }
