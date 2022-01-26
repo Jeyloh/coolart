@@ -1,4 +1,5 @@
 var nodemailer = require('nodemailer');
+var xoauth2 = require('xoauth2');
 
 // const ses = new AWS.SES({
 //   accessKeyId: process.env.SES_ACCESS_KEY_ID,
@@ -54,14 +55,17 @@ export default function handler(req, res) {
 
   // https://nodemailer.com/message/
 
-  var transport = nodemailer.createTransport('smtps', {
+  var transport = nodemailer.createTransport({
+    service: 'SMTP',
     // Yes. SMTP!
     host: 'email-smtp.eu-central-1.amazonaws.com', // Amazon email SMTP hostname
     secureConnection: true, // use SSL
     port: 2587, // port for secure SMTP
     auth: {
-      user: process.env.SES_USERNAME, // Use from Amazon Credentials
-      pass: process.env.SES_SECRET, // Use from Amazon Credentials
+      xoauth2: xoauth2.createXOAuth2Generator({
+        user: process.env.SES_USERNAME, // Use from Amazon Credentials
+        pass: process.env.SES_SECRET, // Use from Amazon Credentials
+      }),
     },
   });
 

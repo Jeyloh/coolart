@@ -19,7 +19,8 @@
     "react-google-recaptcha": "^2.1.0",
     "react-icons": "^4.3.1",
     "react-image-gallery": "^1.2.7",
-    "react-responsive-carousel": "^3.2.21"
+    "react-responsive-carousel": "^3.2.21",
+    "xoauth2": "^1.2.0"
   },
   "devDependencies": {
     "eslint": "7.32.0",
