@@ -1,10 +1,10 @@
-const AWS = require('aws-sdk');
+var nodemailer = require('nodemailer');
 
-const ses = new AWS.SES({
-  accessKeyId: process.env.SES_ACCESS_KEY_ID,
-  secretAccessKey: process.env.SES_ACCESS_SECRET,
-  region: 'eu-central-1',
-});
+// const ses = new AWS.SES({
+//   accessKeyId: process.env.SES_ACCESS_KEY_ID,
+//   secretAccessKey: process.env.SES_ACCESS_SECRET,
+//   region: 'eu-central-1',
+// });
 
 export default function handler(req, res) {
   console.log('hi from api/workshops');
@@ -22,55 +22,75 @@ export default function handler(req, res) {
   <p>Extra information: <b>${req.body.extraMessage}</b></p>
 `;
 
-  const sesParams = {
-    Destination: {
-      ToAddresses: ['jorgenlybeck94@gmail.com'],
+  // const sesParams = {
+  //   Destination: {
+  //     ToAddresses: ['jorgenlybeck94@gmail.com'],
+  //   },
+  //   Message: {
+  //     Body: {
+  //       Html: {
+  //         Charset: 'UTF-8',
+  //         Data: html,
+  //       },
+  //     },
+  //     Subject: {
+  //       Charset: 'UTF-8',
+  //       Data: 'Test email',
+  //     },
+  //   },
+  //   Source: 'coolart.no',
+  // };
+
+  // ses
+  //   .sendEmail(sesParams)
+  //   .then(() => {
+  //     console.log('sent mail with ses');
+
+  //   })
+  //   .catch((err) => {
+  //     console.log('error sending ses mail');
+
+  //   });
+
+  // https://nodemailer.com/message/
+
+  var transport = nodemailer.createTransport('SMTP', {
+    // Yes. SMTP!
+    host: 'email-smtp.eu-central-1.amazonaws.com', // Amazon email SMTP hostname
+    secureConnection: true, // use SSL
+    port: 2587, // port for secure SMTP
+    auth: {
+      user: process.env.SES_USERNAME, // Use from Amazon Credentials
+      pass: process.env.SES_SECRET, // Use from Amazon Credentials
     },
-    Message: {
-      Body: {
-        Html: {
-          Charset: 'UTF-8',
-          Data: html,
-        },
-      },
-      Subject: {
-        Charset: 'UTF-8',
-        Data: 'Test email',
-      },
-    },
-    Source: 'coolart.no',
+  });
+
+  var mailOptions = {
+    from: 'Coolart <coolart.no>', // sender address
+    to: 'jorgenlybeck94@gmail.com', // list of receivers
+    subject: 'Workshop request: ' + req.body.workshopType, // Subject line
+    html: html, // email body
   };
 
-  ses
-    .sendEmail(sesParams)
-    .then(() => {
-      console.log('sent mail with ses');
-      try {
-        res.status(200).json({
-          body: message,
-          query: req.query,
-          cookies: req.cookies,
-        });
-      } catch (err) {
-        console.log(err);
-      }
-    })
-    .catch((err) => {
-      console.log('error sending ses mail');
+  // send mail with defined transport object
+  transport.sendMail(mailOptions, function (error, response) {
+    if (error) {
+      console.log(error);
+
       res.status(400).json({
         body: 'ops',
         query: req.query,
         cookies: req.cookies,
       });
-    });
+    } else {
+      console.log('Message sent!');
+      res.status(200).json({
+        body: mailOptions,
+        query: req.query,
+        cookies: req.cookies,
+      });
+    }
 
-  // https://nodemailer.com/message/
-  const message = {
-    from: req.body.email,
-    to: 'contact@coolart.no',
-    subject: 'Workshop request: ' + req.body.workshopType,
-    html: html,
-  };
-
-  console.log(JSON.stringify(message));
+    transport.close(); // shut down the connection pool, no more messages
+  });
 }
