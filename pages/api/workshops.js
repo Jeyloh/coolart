@@ -54,7 +54,7 @@ export default function handler(req, res) {
 
   // https://nodemailer.com/message/
 
-  var transport = nodemailer.createTransport({
+  var transport = nodemailer.createTransport('smtps', {
     // Yes. SMTP!
     host: 'email-smtp.eu-central-1.amazonaws.com', // Amazon email SMTP hostname
     secureConnection: true, // use SSL
