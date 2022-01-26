@@ -66,7 +66,7 @@ export default function handler(req, res) {
   });
 
   var mailOptions = {
-    from: 'Coolart <coolart.no>', // sender address
+    from: 'Coolart<coolart.no>', // sender address
     to: 'jorgenlybeck94@gmail.com', // list of receivers
     subject: 'Workshop request: ' + req.body.workshopType, // Subject line
     html: html, // email body
