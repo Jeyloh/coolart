@@ -35,8 +35,8 @@ export default function handler(req, res) {
     host: 'eu-central-1',
     secure: true,
     auth: {
-      user: process.env.SES_ACCESS_KEY_ID,
-      pass: process.env.SES_ACCESS_SECRET,
+      user: process.env.SES_USERNAME,
+      pass: process.env.SES_SECRET,
     },
     debug: true,
   });
