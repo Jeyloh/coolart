@@ -1,5 +1,5 @@
 let nodemailer = require('nodemailer');
-let aws = require('@aws-sdk/client-ses');
+let aws = require('@aws-sdk');
 
 aws.config.update({
   credentials: {
