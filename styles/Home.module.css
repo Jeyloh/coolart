@@ -119,6 +119,7 @@
 
   .SplitBox {
     flex-direction: column;
+    margin-top: -10px;
   }
   .SplitBox > div {
     width: 100%;
