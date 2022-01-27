@@ -5,3 +5,26 @@
   padding: var(--containerPadding);
   margin: 0 auto;
 }
+
+.VideoWrapper {
+  height: 40vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.Video {
+  bottom: 20vh;
+  width: 100%;
+}
+
+@media only screen and (max-width: 680px) {
+  .VideoWrapper {
+    height: 40vh;
+  }
+
+  .Video {
+    bottom: 20vh;
+    width: unset;
+  }
+}

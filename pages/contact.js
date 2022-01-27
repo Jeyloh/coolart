@@ -13,7 +13,13 @@ export default function Contact() {
     <div className={styles.Contact}>
       <HtmlHead />
       <Header currentHref={'/contact'} />
-      <div
+      <div className={styles.VideoWrapper}>
+        <video className={styles.Video} loop muted autoPlay playsInline>
+          <source src='images/nybyen-vid.mp4' type='video/mp4' />
+        </video>
+      </div>
+
+      {/* <div
         data-poster-url='https://daks2k3a4ib2z.cloudfront.net/590348c20493323d42c78ab6/590b9233f274e91bc1039b1c_IMG_0581-poster-00001.jpg'
         data-video-urls='https://daks2k3a4ib2z.cloudfront.net/590348c20493323d42c78ab6/590b9233f274e91bc1039b1c_IMG_0581-transcode.mp4,https://daks2k3a4ib2z.cloudfront.net/590348c20493323d42c78ab6/590b9233f274e91bc1039b1c_IMG_0581-transcode.webm'
         data-autoplay='true'
@@ -42,7 +48,7 @@ export default function Contact() {
             data-wf-ignore='true'
           />
         </video>
-      </div>
+      </div> */}
       <div className={styles.Wrapper}>
         <h2>{content.contact.title}</h2>
         <ul>

@@ -16,6 +16,7 @@
 .HeaderIcon {
   transition: width 300ms ease-in-out;
   width: 200px;
+  z-index: 30;
 }
 
 .HeaderIcon.scrolled {
@@ -27,25 +28,64 @@
   top: 0;
 }
 
+.MobileNavigation {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 200vw;
+  right: 0;
+  height: 100vh;
+  width: 100vw;
+  background: var(--pink);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing2);
+  opacity: 0;
+  transition: left 300ms ease-in-out, opacity 300ms ease-in;
+}
+
+.MobileNavigationOpen {
+  left: 0;
+  opacity: 1;
+}
+
 .Navigation {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  gap: var(--spacing2);
 }
 
 .Nav a {
   color: white;
   font-size: var(--font-md);
   font-family: var(--font-exo);
-  margin-left: var(--spacing2);
+}
+
+.MobileNavigation .Nav a {
+  font-size: var(--font-xl);
+}
+
+.CloseMenuNav {
+  position: absolute;
+  bottom: 50px;
+  color: var(--pink);
+  font-size: var(--font-md);
+  font-family: var(--font-exo);
+  background: white;
 }
 
 .CurrentNav a {
   color: white;
   font-size: var(--font-md);
   font-family: var(--font-exo);
-  margin-left: var(--spacing2);
   box-shadow: 0 2px 0 white;
+}
+
+.MobileNavigation .CurrentNav a {
+  font-size: var(--font-xl);
 }
 
 @media (max-width: 600px) {
@@ -56,4 +96,82 @@
   .Navigation {
     flex-direction: column;
   }
+}
+
+.MenuButton {
+  background: transparent;
+  outline: none;
+  border: none;
+  width: var(--mobileMenuButtonWidth);
+  height: var(--mobileMenuButtonHeight);
+  position: relative;
+  /* margin: 50px auto; */
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: 0.5s ease-in-out;
+  -moz-transition: 0.5s ease-in-out;
+  -o-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+  z-index: 50;
+}
+
+.MenuButton span {
+  display: block;
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  background: white;
+  border-radius: 3px;
+  opacity: 1;
+  left: 0;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: 0.25s ease-in-out;
+  -moz-transition: 0.25s ease-in-out;
+  -o-transition: 0.25s ease-in-out;
+  transition: 0.25s ease-in-out;
+}
+
+.MenuButton span:nth-child(1) {
+  top: 0px;
+}
+
+.MenuButton.open span:nth-child(1) {
+  top: calc(var(--mobileMenuButtonHeight) * 0.2);
+  width: 0%;
+  left: 50%;
+}
+
+.MenuButton span:nth-child(2),
+.MenuButton span:nth-child(3) {
+  top: calc(var(--mobileMenuButtonHeight) * 0.5);
+}
+
+.MenuButton span:nth-child(4) {
+  top: calc(var(--mobileMenuButtonHeight) * 1);
+}
+
+.MenuButton.open span:nth-child(2) {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.MenuButton.open span:nth-child(3) {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+.MenuButton.open span:nth-child(4) {
+  top: calc(var(--mobileMenuButtonHeight) * 0.2);
+  width: 0%;
+  left: 50%;
 }
