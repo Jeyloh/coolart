@@ -9,17 +9,11 @@ aws.config.update({
   region: 'eu-central-1',
 });
 
-const ses = new aws.SES({
-  apiVersion: '2010-12-01',
-  region: 'eu-central-1',
-  // credentials: {
-  //   accessKeyId: process.env.SES_ACCESS_KEY_ID,
-  //   secretAccessKey: process.env.SES_ACCESS_SECRET,
-  // },
-});
-
 let transporter = nodemailer.createTransport({
-  SES: { ses, aws },
+  SES: new aws.SES({
+    apiVersion: '2010-12-01',
+    region: 'eu-central-1',
+  }),
   sendingRate: 1,
 });
 
