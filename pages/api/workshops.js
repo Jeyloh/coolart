@@ -32,7 +32,7 @@ export default function handler(req, res) {
   // <p>Extra information: <b>${req.body.extraMessage}</b></p>`;
 
   var mailOptions = {
-    from: 'Coolart<mail.coolart.no>', // sender address
+    from: 'dev@coolart.no', // sender address
     to: 'jorgenlybeck94@gmail.com', // list of receivers
     // subject: `Workshop request ${req.body.workshopType}`, // Subject line
     subject: 'Workshop request', // Subject line
