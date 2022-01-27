@@ -21,20 +21,21 @@ export default function Home() {
 
       <main className={styles.main}>
         <ImageCarousel
+          autoPlay={false}
           images={[
             {
               src: nybyen1,
               alt: 'test',
             },
 
-            {
-              src: nybyen2,
-              alt: 'test',
-            },
-            {
-              src: nybyen3,
-              alt: 'test',
-            },
+            // {
+            //   src: nybyen2,
+            //   alt: 'test',
+            // },
+            // {
+            //   src: nybyen3,
+            //   alt: 'test',
+            // },
           ]}
         >
           <Image

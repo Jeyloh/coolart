@@ -14,6 +14,21 @@ export default function Footer() {
         </div>
 
         <div className={styles.FooterLinks}>
+          <h2>{content.contact.title}</h2>
+          <ul>
+            <li>
+              <p>{content.contact.line1}</p>
+            </li>
+            <li>
+              <p>{content.contact.line2}</p>
+            </li>
+            <li>
+              <p>{content.contact.line3}</p>
+            </li>
+            <li>
+              <p>{content.contact.line4}</p>
+            </li>
+          </ul>
           <h2>{content.footer.links.title}</h2>
           <ul>
             {content.footer.links.list.map(({ text, href }) => (

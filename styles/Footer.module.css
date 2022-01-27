@@ -8,6 +8,11 @@
   color: white;
 }
 
+.Footer h2,
+.Footer p {
+  margin-bottom: 0;
+}
+
 .Wrapper {
   justify-content: space-between;
   width: 100%;
@@ -31,7 +36,7 @@
   flex-direction: column;
   border-left: 1px solid white;
   padding-left: var(--spacing2);
-  width: calc(var(--mainWidth) / 3);
+  width: calc(var(--mainWidth));
 }
 
 .FooterLinks li {

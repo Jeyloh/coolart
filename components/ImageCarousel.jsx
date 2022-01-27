@@ -6,13 +6,13 @@ import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
 import Image from 'next/image';
 
-export default function ImageCarousel({ images, children }) {
+export default function ImageCarousel({ images, autoPlay, children }) {
   return (
     <div className={styles.ImageCarousel}>
       <div className={styles.Overlay}>{children}</div>
       <div className={styles.Carousel}>
         <Carousel
-          autoPlay
+          autoPlay={autoPlay}
           interval={6000}
           transitionTime={1000}
           infiniteLoop

@@ -283,5 +283,12 @@
       ],
       "submitText": "Send workshop request"
     }
+  },
+  "contact": {
+    "title": "Have a question?",
+    "line1": "DIRECT MAIL: CONTACT@COOLART.NO",
+    "line2": "MOBILE: 458 35 829 / 4004 9093",
+    "line3": "ADDRESS: FERGEFJELLET 1, ",
+    "line4": "4614 KRISTIANSAND"
   }
 }

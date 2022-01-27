@@ -80,7 +80,12 @@
 .WorkshopGridHeader {
   background: var(--pink);
   padding: var(--smallPadding);
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
 .WorkshopGridContent {
   padding: var(--smallPadding);
   white-space: pre-line;

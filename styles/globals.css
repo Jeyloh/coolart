@@ -131,3 +131,7 @@ textarea {
 * {
   box-sizing: border-box;
 }
+
+.carousel-status {
+  display: none;
+}
