@@ -78,7 +78,6 @@ export default function Home() {
               {content.home.yos.map((yo) => (
                 <div className={styles.ImageScrollItem} key={yo}>
                   <h4 className={styles.yoHeader}>YO!</h4>
-
                   {yo}
                 </div>
               ))}

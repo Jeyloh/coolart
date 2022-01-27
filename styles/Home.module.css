@@ -76,6 +76,15 @@
   width: 100%;
 }
 
+@media (max-width: 678px) {
+  .RowContainer > div {
+    width: 100%;
+  }
+  .RowContainer {
+    flex-direction: column;
+  }
+}
+
 .card {
   margin: 1rem;
   padding: var(--smallPadding);
