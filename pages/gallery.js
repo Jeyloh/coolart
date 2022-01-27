@@ -181,7 +181,7 @@ export default function Gallery() {
   return (
     <div className={styles.Gallery}>
       <HtmlHead juicer />
-      <Header />
+      <Header currentHref={'/gallery'} />
       <main className={styles.Wrapper}>
         <section className={styles.spacing}>
           <h1 className={styles.center}>{content.gallery.title}</h1>

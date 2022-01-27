@@ -6,7 +6,7 @@ import Image from 'next/image';
 import logo from '../public/images/logo/coolart-logo-border.png';
 import cn from 'classnames';
 
-export default function Header() {
+export default function Header({ currentHref }) {
   const [hasScrolled, setHasScrolled] = useState(false);
   useEffect(() => {
     function handleScroll() {
@@ -38,9 +38,12 @@ export default function Header() {
         </div>
         <navigation className={styles.Navigation}>
           {content.header.nav.map(({ text, href }) => (
-            <Link key={text} href={href}>
-              {text}
-            </Link>
+            <span
+              key={text}
+              className={currentHref === href ? styles.CurrentNav : styles.Nav}
+            >
+              <Link href={href}>{text}</Link>
+            </span>
           ))}
         </navigation>
       </div>

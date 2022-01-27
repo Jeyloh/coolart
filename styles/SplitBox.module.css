@@ -61,11 +61,11 @@
   }
   .SplitBoxAbsolute > div:first-child {
     text-align: center;
-    padding: var(--spacing4) var(--spacing6);
+    padding: var(--largePadding);
   }
   .SplitBoxAbsolute > div:last-child {
     text-align: center;
-    padding: var(--spacing4) var(--spacing6);
+    padding: var(--largePadding);
   }
 
   .SplitBoxFirst,

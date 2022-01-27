@@ -1,9 +1,13 @@
+.Gallery {
+}
+
 .Gallery p {
   line-height: var(--font-lg);
 }
 
 .Wrapper {
   max-width: var(--max-page-width);
+  padding: var(--containerPadding);
   margin: 0 auto;
 }
 

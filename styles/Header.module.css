@@ -33,11 +33,19 @@
   justify-content: flex-end;
 }
 
-.Navigation a {
+.Nav a {
   color: white;
   font-size: var(--font-md);
   font-family: var(--font-exo);
   margin-left: var(--spacing2);
+}
+
+.CurrentNav a {
+  color: white;
+  font-size: var(--font-md);
+  font-family: var(--font-exo);
+  margin-left: var(--spacing2);
+  box-shadow: 0 2px 0 white;
 }
 
 @media (max-width: 600px) {

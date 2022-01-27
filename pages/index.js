@@ -17,7 +17,7 @@ export default function Home() {
     <div className={styles.container}>
       <HtmlHead title={'Coolart'} />
 
-      <Header />
+      <Header currentHref={'/'} />
 
       <main className={styles.main}>
         <ImageCarousel

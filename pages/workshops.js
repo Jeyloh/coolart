@@ -14,7 +14,7 @@ export default function Workshop() {
   return (
     <div className={styles.Workshop}>
       <HtmlHead />
-      <Header />
+      <Header currentHref={'/workshops'} />
       <main className={styles.Wrapper}>
         <section className={styles.HeadingSection}>
           <h1>{content.workshop.title}</h1>
@@ -24,7 +24,17 @@ export default function Workshop() {
               <li key={li}>{li}</li>
             ))}
           </ul>
-          <video src={content.workshop.youtubeUrl}></video>
+          <section className={styles.VideoContainer}>
+            <iframe
+              width={'100%'}
+              height='500'
+              src={content.workshop.youtubeUrl}
+              title='YouTube video player'
+              frameBorder={0}
+              allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+              allowFullScreen
+            ></iframe>
+          </section>
         </section>
         <section className={styles.WorkshopGrid}>
           <div className={cn(styles.WorkshopGridTitle)}>

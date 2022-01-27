@@ -2,7 +2,7 @@
   "home": {
     "philosophy": {
       "title": "Philosophy",
-      "content": "We want to turn emty spaces in public room into active spaces. By the effort of street art, the space can be turned into lively, creative spaces that bring people together."
+      "content": "We want to turn empty spaces in public room into active spaces. By the effort of street art, the space can be turned into lively, creative spaces that bring people together."
     },
     "contact": {
       "title": "Contact",
@@ -141,7 +141,7 @@
       "PERFECT FOR STUDENTS, PRIVATE PARTIES OR COMPANIES",
       "A NATURAL TEAM BONDING ENVIRONMENT"
     ],
-    "youtubeUrl": "",
+    "youtubeUrl": "https://www.youtube.com/embed/sDP52XI95K8?mute=1",
     "types": {
       "title": "WE HOST GROUPS OF 5 TO 50 PEOPLE",
       "general": {
@@ -210,6 +210,8 @@
     },
     "workshopForm": {
       "title": "Are you interested in a workshop?",
+      "receivedMessage": "We have received your email and will be in contact with you!",
+      "requiredFields": "* Required information",
       "inputs": [
         {
           "id": "name",
@@ -255,16 +257,16 @@
           "required": true,
           "options": [
             {
-              "value": "drawGrafittiStencil",
+              "value": "Draw Grafitti Stencil",
               "label": "Draw, Grafitti, Stencil"
             },
             {
-              "value": "battle",
-              "label": "Grafitti battle"
+              "value": "Grafitti Battle",
+              "label": "Grafitti Battle"
             },
             {
-              "value": "custom",
-              "label": "Custom workshop"
+              "value": "Custom Workshop",
+              "label": "Custom Workshop"
             }
           ]
         },

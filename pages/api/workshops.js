@@ -13,25 +13,27 @@ export default function handler(req, res) {
   console.log('hi from api/workshops');
   console.log(req, res);
 
-  const html = `<p>Name: <b>${req.body.name}</b></p>
-  <p>Phone number: <b>${req.body.phone}</b></p>
-  <p>Email: <b>${req.body.email}</b></p>
-  <p>Company: <b>${req.body.company}</b></p>
-  <p>Date: <b>${req.body.date}</b></p>
-  <p>Amount of participants: <b>${req.body.participantsAmount}</b></p>
-  <p>Workshop type: <b>${req.body.workshopType}</b></p>
-  <p>How did you hear about us: <b>${req.body.refarral}</b></p>
-  <p>Extra information: <b>${req.body.extraMessage}</b></p>`;
+  const data = JSON.parse(req.body);
+
+  const html = `<p>Name: <b>${data.name}</b></p>
+  <p>Phone number: <b>${data.phone}</b></p>
+  <p>Email: <b>${data.email}</b></p>
+  <p>Company: <b>${data.company}</b></p>
+  <p>Date: <b>${data.date}</b></p>
+  <p>Amount of participants: <b>${data.participantsAmount}</b></p>
+  <p>Workshop type: <b>${data.workshopType}</b></p>
+  <p>How did you hear about us: <b>${data.refarral}</b></p>
+  <p>Extra information: <b>${data.extraMessage}</b></p>`;
 
   const to = ['dev@coolart.no'];
-  if (req.body.email) {
-    to.push(req.body.email);
+  if (data.email) {
+    to.push(data.email);
   }
   const mailOptions = {
     from: 'CoolArt <contact@coolart.no>', // sender address
     to, // list of receivers
-    // subject: `Workshop request ${req.body.workshopType}`, // Subject line
-    subject: 'Workshop Request - ' + req.body.workshopType, // Subject line
+    // subject: `Workshop request ${data.workshopType}`, // Subject line
+    subject: 'Workshop Request - ' + data.workshopType, // Subject line
     html, // email body
     ses: {
       // optional extra arguments for SendRawEmail

@@ -5,12 +5,14 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { useState, useRef } from 'react';
 import { BiMailSend } from 'react-icons/bi';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 export default function WorkshopForm({ inputs, submitText }) {
   const [startDate, setStartDate] = useState(new Date());
   const [warningList, setWarningList] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isDone, setIsDone] = useState(false);
+  const recaptchaRef = useRef();
 
   const renderInputByType = (input) => {
     switch (input.type) {
@@ -58,18 +60,38 @@ export default function WorkshopForm({ inputs, submitText }) {
     }
   };
 
-  const onReCAPTCHAChange = (captchaCode) => {
-    // If the reCAPTCHA code is null or undefined indicating that
-    // the reCAPTCHA was expired then return early
-    if (!captchaCode) {
+  const validateCaptcha = (response_key) => {
+    return new Promise((resolve, reject) => {
+      const secret_key = process.env.RECAPTCHA_SECRET_KEY;
+
+      const url = `https://www.google.com/recaptcha/api/siteverify?secret=${secret_key}&response=${response_key}`;
+
+      fetch(url, {
+        method: 'post',
+      })
+        .then((response) => response.json())
+        .then((google_response) => {
+          if (google_response.success == true) {
+            resolve(true);
+          } else {
+            resolve(false);
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+          resolve(false);
+        });
+    });
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (grecaptcha.getResponse() === '') {
+      e.preventDefault();
+      alert("Please click <I'm not a robot> before sending the job");
       return;
     }
 
-    handleSubmit();
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
     const inputObj = {};
     const updatedWarningList = [];
     Object.values(e.target).map((inputElement) => {
@@ -79,7 +101,6 @@ export default function WorkshopForm({ inputs, submitText }) {
       const isSelect = originalItem?.type === 'select';
       console.log(originalItem);
       const value = inputElement?.value?.trim();
-      console.log({ inputElement });
 
       if (isSelect) {
         console.log('select');
@@ -121,8 +142,8 @@ export default function WorkshopForm({ inputs, submitText }) {
   };
   if (isDone) {
     return (
-      <div className={styles.DoneBox} style={{ fontSize: 30 }}>
-        We have received your email and will be in contact with you!{' '}
+      <div className={styles.DoneBox} style={{ fontSize: 18 }}>
+        {content.workshop.workshopForm.receivedMessage}
         <BiMailSend />
       </div>
     );
@@ -147,6 +168,13 @@ export default function WorkshopForm({ inputs, submitText }) {
             );
           })}
         </div>
+        <p>{content.workshop.workshopForm.requiredFields}</p>
+        <ReCAPTCHA
+          ref={recaptchaRef}
+          size='normal'
+          sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+          onChange={validateCaptcha}
+        />
         <button className={styles.SubmitButton} type='submit'>
           {isLoading ? <BiMailSend /> : submitText}
         </button>

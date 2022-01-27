@@ -3,6 +3,7 @@
 
 .Wrapper {
   max-width: var(--max-page-width);
+  padding: var(--containerPadding);
   margin: 0 auto;
 }
 
@@ -16,8 +17,7 @@
   line-height: var(--font-lg);
   padding-left: 16px;
 }
-.IntroList {
-}
+
 .IntroList li {
   font-size: var(--font-md);
   line-height: 40px;
@@ -32,19 +32,33 @@
   color: var(--pink);
 }
 
+.VideoContainer {
+  margin-top: var(--spacing3);
+}
+
 .WorkshopGrid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   grid-template-areas:
     'heading heading'
     'first second';
-  gap: 16px;
+  gap: var(--spacing2);
+}
+
+@media only screen and (max-width: 680px) {
+  .WorkshopGrid {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    grid-template-areas:
+      'heading'
+      'second'
+      'first';
+  }
 }
 
 .WorkshopGridTitle {
   grid-area: heading;
   background: var(--pink);
-  padding: var(--spacing2);
+  padding: var(--smallPadding);
   color: white;
 }
 
@@ -65,17 +79,17 @@
 
 .WorkshopGridHeader {
   background: var(--pink);
-  padding: var(--spacing2);
+  padding: var(--smallPadding);
 }
 .WorkshopGridContent {
-  padding: var(--spacing2);
+  padding: var(--smallPadding);
   white-space: pre-line;
 }
 
 .CtaBox {
   background: var(--pink);
   color: white;
-  padding: var(--spacing2);
+  padding: var(--smallPadding);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -92,7 +106,7 @@
 }
 
 .CtaButton {
-  padding: var(--spacing2) var(--spacing3);
+  padding: var(--buttonPadding);
   background: white;
   color: var(--dark);
   border: none;

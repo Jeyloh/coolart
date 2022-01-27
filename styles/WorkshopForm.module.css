@@ -1,13 +1,14 @@
 .Container {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  /* grid-template-areas:
-    'name phone'
-    'email company'
-    'preferredDate particpantsAmount'
-    'workshopType howDidYouHear'
-    'message message'; */
-  gap: 16px;
+  gap: var(--spacing2);
+}
+
+@media only screen and (max-width: 680px) {
+  .Container {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .LabelContainer {
@@ -15,6 +16,7 @@
   display: flex;
   flex-direction: column;
 }
+
 .Warning {
   color: var(--pink);
   font-weight: 600;
@@ -38,9 +40,9 @@
 }
 
 .DoneBox {
-  background: var(--pink);
-  color: white;
+  border: 2px solid var(--pink);
+  color: var(--pink);
   font-family: var(--exo);
-  padding: var(--spacing1);
+  padding: var(--smallPadding);
   border-radius: 5px;
 }
