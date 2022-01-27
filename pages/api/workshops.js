@@ -30,7 +30,7 @@ export default function handler(req, res) {
     ${getLine('Extra information', data.extraMessage)}
   `;
 
-  const to = ['dev@coolart.no'];
+  const to = ['contact@coolart.no'];
   if (data.email) {
     to.push(data.email);
   }

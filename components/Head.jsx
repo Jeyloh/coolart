@@ -27,7 +27,7 @@ export default function HtmlHead({ title }) {
       />
       <meta content='Homepage' property='twitter:title' />
       <meta
-        content='We create beautiful mural art in public. We deliver colourful visual art to the people.We turn empty spaces in public room into lively, creative spaces that bring people together.'
+        content='We create beautiful mural art in public. We deliver colourful visual art to the people. We turn empty spaces in public room into lively, creative spaces that bring people together.'
         property='twitter:description'
       />
       <meta
