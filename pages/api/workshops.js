@@ -9,35 +9,30 @@ aws.config.update({
   region: 'eu-central-1',
 });
 
-let transporter = nodemailer.createTransport({
-  SES: new aws.SES({
-    apiVersion: '2010-12-01',
-    region: 'eu-central-1',
-  }),
-  sendingRate: 1,
-});
-
 export default function handler(req, res) {
   console.log('hi from api/workshops');
   console.log(req, res);
 
-  // const html = `<p>Name: <b>${req.body.name}</b></p>
-  // <p>Phone number: <b>${req.body.phone}</b></p>
-  // <p>Email: <b>${req.body.email}</b></p>
-  // <p>Company: <b>${req.body.company}</b></p>
-  // <p>Date: <b>${req.body.date}</b></p>
-  // <p>Amount of participants: <b>${req.body.participantsAmount}</b></p>
-  // <p>Workshop type: <b>${req.body.workshopType}</b></p>
-  // <p>How did you hear about us: <b>${req.body.refarral}</b></p>
-  // <p>Extra information: <b>${req.body.extraMessage}</b></p>`;
+  const html = `<p>Name: <b>${req.body.name}</b></p>
+  <p>Phone number: <b>${req.body.phone}</b></p>
+  <p>Email: <b>${req.body.email}</b></p>
+  <p>Company: <b>${req.body.company}</b></p>
+  <p>Date: <b>${req.body.date}</b></p>
+  <p>Amount of participants: <b>${req.body.participantsAmount}</b></p>
+  <p>Workshop type: <b>${req.body.workshopType}</b></p>
+  <p>How did you hear about us: <b>${req.body.refarral}</b></p>
+  <p>Extra information: <b>${req.body.extraMessage}</b></p>`;
 
-  var mailOptions = {
-    from: 'CoolArt <dev@coolart.no>', // sender address
-    to: 'jorgenlybeck94@gmail.com', // list of receivers
+  const to = ['dev@coolart.no'];
+  if (req.body.email) {
+    to.push(req.body.email);
+  }
+  const mailOptions = {
+    from: 'CoolArt <contact@coolart.no>', // sender address
+    to, // list of receivers
     // subject: `Workshop request ${req.body.workshopType}`, // Subject line
-    subject: 'Workshop request', // Subject line
-    html: '<p>Test html</p>', // email body
-    text: 'Test text',
+    subject: 'Workshop Request - ' + req.body.workshopType, // Subject line
+    html, // email body
     ses: {
       // optional extra arguments for SendRawEmail
       Tags: [
@@ -48,6 +43,14 @@ export default function handler(req, res) {
       ],
     },
   };
+
+  let transporter = nodemailer.createTransport({
+    SES: new aws.SES({
+      apiVersion: '2010-12-01',
+      region: 'eu-central-1',
+    }),
+    sendingRate: 1,
+  });
 
   // Push next messages to Nodemailer
   transporter.once('idle', () => {
