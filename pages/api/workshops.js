@@ -9,21 +9,26 @@ aws.config.update({
   region: 'eu-central-1',
 });
 
+const getLine = (label, value) =>
+  `<p>${label}: <b>${value.length ? value : '-'}</b></p>`;
+
 export default function handler(req, res) {
   console.log('hi from api/workshops');
   console.log(req, res);
 
   const data = JSON.parse(req.body);
 
-  const html = `<p>Name: <b>${data.name}</b></p>
-  <p>Phone number: <b>${data.phone}</b></p>
-  <p>Email: <b>${data.email}</b></p>
-  <p>Company: <b>${data.company}</b></p>
-  <p>Date: <b>${data.date}</b></p>
-  <p>Amount of participants: <b>${data.participantsAmount}</b></p>
-  <p>Workshop type: <b>${data.workshopType}</b></p>
-  <p>How did you hear about us: <b>${data.refarral}</b></p>
-  <p>Extra information: <b>${data.extraMessage}</b></p>`;
+  const html = `
+    ${getLine('Name', data.name)}
+    ${getLine('Phone number', data.phone)}
+    ${getLine('Email', data.email)}
+    ${getLine('Company', data.company)}
+    ${getLine('Date', data.date)}
+    ${getLine('Amount of participants', data.participantsAmount)}
+    ${getLine('Workshop type', data.workshopType)}
+    ${getLine('How did you hear about us', data.refarral)}
+    ${getLine('Extra information', data.extraMessage)}
+  `;
 
   const to = ['dev@coolart.no'];
   if (data.email) {
