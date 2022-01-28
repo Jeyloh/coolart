@@ -10,7 +10,7 @@ aws.config.update({
 });
 
 const getLine = (label, value) =>
-  `<p>${label}: <b>${value.length ? value : '-'}</b></p>`;
+  `<p>${label}: <b>${value?.length ? value : '-'}</b></p>`;
 
 export default function handler(req, res) {
   console.log('hi from api/workshops');
@@ -18,17 +18,17 @@ export default function handler(req, res) {
 
   const data = JSON.parse(req.body);
 
-  const html = `
-    ${getLine('Name', data.name)}
-    ${getLine('Phone number', data.phone)}
-    ${getLine('Email', data.email)}
-    ${getLine('Company', data.company)}
-    ${getLine('Date', data.date)}
-    ${getLine('Amount of participants', data.participantsAmount)}
-    ${getLine('Workshop type', data.workshopType)}
-    ${getLine('How did you hear about us', data.refarral)}
-    ${getLine('Extra information', data.extraMessage)}
-  `;
+  let html = `
+  ${getLine('Name', data.name)}
+  ${getLine('Phone number', data.phone)}
+  ${getLine('Email', data.email)}
+  ${getLine('Company', data.company)}
+  ${getLine('Date', data.date)}
+  ${getLine('Amount of participants', data.participantsAmount)}
+  ${getLine('Workshop type', data.workshopType)}
+  ${getLine('How did you hear about us', data.refarral)}
+  ${getLine('Extra information', data.extraMessage)}
+`;
 
   const to = ['contact@coolart.no'];
   if (data.email) {
