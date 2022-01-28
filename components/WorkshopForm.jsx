@@ -12,6 +12,7 @@ export default function WorkshopForm({ inputs, submitText }) {
   const [warningList, setWarningList] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isDone, setIsDone] = useState(false);
+  const [apiError, setApiError] = useState(false);
   const recaptchaRef = useRef();
 
   const renderInputByType = (input) => {
@@ -122,6 +123,7 @@ export default function WorkshopForm({ inputs, submitText }) {
       return;
     } else {
       setIsLoading(true);
+      setApiError(false);
 
       setWarningList([]);
       console.log('submit ', inputObj);
@@ -131,10 +133,16 @@ export default function WorkshopForm({ inputs, submitText }) {
           body: JSON.stringify(inputObj),
         });
         console.log(res);
-        setIsDone(true);
-        recaptchaRef.current.reset();
+
+        if (res.status === 200) {
+          setIsDone(true);
+          recaptchaRef.current.reset();
+        } else {
+          setApiError(true);
+        }
       } catch (err) {
         console.error(err);
+        setApiError(true);
       } finally {
         setIsLoading(false);
       }
@@ -175,6 +183,9 @@ export default function WorkshopForm({ inputs, submitText }) {
           sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
           onChange={validateCaptcha}
         />
+        {apiError && (
+          <p style={{ color: 'var(--pink)' }}>Something went wrong</p>
+        )}
         <button className={styles.SubmitButton} type='submit'>
           {isLoading ? <BiMailSend /> : submitText}
         </button>
