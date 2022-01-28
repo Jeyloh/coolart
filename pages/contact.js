@@ -11,7 +11,7 @@ import CustomGoogleMap from '../components/GoogleMap';
 export default function Contact() {
   return (
     <div className={styles.Contact}>
-      <HtmlHead />
+      <HtmlHead title={'CoolArt - Contact'} />
       <Header currentHref={'/contact'} />
       <div className={styles.VideoWrapper}>
         <video className={styles.Video} loop muted autoPlay playsInline>

@@ -180,7 +180,8 @@ const portfolioGallery = [
 export default function Gallery() {
   return (
     <div className={styles.Gallery}>
-      <HtmlHead juicer />
+      <HtmlHead title={'CoolArt - Gallery'} />
+
       <Header currentHref={'/gallery'} />
       <main className={styles.Wrapper}>
         <section className={styles.spacing}>
