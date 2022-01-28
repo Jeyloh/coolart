@@ -13,7 +13,7 @@ export default function Workshop() {
 
   return (
     <div className={styles.Workshop}>
-      <HtmlHead />
+      <HtmlHead title={'CoolArt - Workshops'} />
       <Header currentHref={'/workshops'} />
       <main className={styles.Wrapper}>
         <section className={styles.HeadingSection}>

@@ -4,7 +4,7 @@ import React from 'react';
 export default function HtmlHead({ title }) {
   return (
     <Head>
-      <title>{title}</title>
+      <title>{title || 'CoolArt'}</title>
       <meta
         content='s0UbJXErF-6v4SOJL4md8m8dx1saFPcjXUzjLLi__2g'
         name='google-site-verification'
