@@ -4,6 +4,7 @@ import {
   GoogleMap,
   Marker,
 } from 'react-google-maps';
+import Script from 'next/script';
 
 const defaultCenter = { lat: 58.1388267, lng: 7.994655499999999 };
 const defaultOptions = { scrollwheel: false };
@@ -26,14 +27,20 @@ const mapElementStyle = { height: '100%' };
 
 export default function CustomGoogleMap() {
   return (
-    <RegularMap
-      googleMapURL={
-        'https://maps.googleapis.com/maps/api/js?key=' +
-        process.env.MAPS_API_KEY
-      }
-      loadingElement={<div style={loadingElementStyle} />}
-      containerElement={<div style={containerElementStyle} />}
-      mapElement={<div style={mapElementStyle} />}
-    />
+    <>
+      <Script
+        src={`https://maps.googleapis.com/maps/api/js?key=${process.env.MAPS_API_KEY}&callback=initMap&libraries=&v=weekly`}
+        async
+      />
+      <RegularMap
+        googleMapURL={
+          'https://maps.googleapis.com/maps/api/js?key=' +
+          process.env.MAPS_API_KEY
+        }
+        loadingElement={<div style={loadingElementStyle} />}
+        containerElement={<div style={containerElementStyle} />}
+        mapElement={<div style={mapElementStyle} />}
+      />
+    </>
   );
 }

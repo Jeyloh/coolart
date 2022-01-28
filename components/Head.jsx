@@ -46,11 +46,6 @@ export default function HtmlHead({ title }) {
         href='https://uploads-ssl.webflow.com/img/webclip.png'
         rel='apple-touch-icon'
       />
-
-      <script
-        src={`https://maps.googleapis.com/maps/api/js?key=${process.env.MAPS_API_KEY}&callback=initMap&libraries=&v=weekly`}
-        async
-      />
     </Head>
   );
 }
