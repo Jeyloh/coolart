@@ -5,8 +5,11 @@ import Link from 'next/link';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
 import Image from 'next/image';
+import { useWindowSize } from './Header';
 
 export default function ImageCarousel({ images, autoPlay, children }) {
+  const { width } = useWindowSize();
+  console.log({ width });
   return (
     <div className={styles.ImageCarousel}>
       <div className={styles.Overlay}>{children}</div>
@@ -29,7 +32,12 @@ export default function ImageCarousel({ images, autoPlay, children }) {
         >
           {images.map((image) => (
             <div key={image.alt}>
-              <Image src={image.src} alt={image.alt} />
+              <Image
+                height={width > 1990 ? 1100 : 2000}
+                objectFit='cover'
+                src={image.src}
+                alt={image.alt}
+              />
             </div>
           ))}
         </Carousel>

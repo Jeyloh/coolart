@@ -52,6 +52,7 @@
   .SplitBox {
     flex-direction: column;
   }
+
   .SplitBox > div {
     width: 100%;
   }
@@ -62,17 +63,17 @@
   }
   .SplitBoxAbsolute > div:first-child {
     text-align: center;
-    padding: var(--largePadding);
+    padding: var(--spacing2);
   }
   .SplitBoxAbsolute > div:last-child {
     text-align: center;
-    padding: var(--largePadding);
+    padding: var(--spacing2);
   }
 
   .SplitBoxFirst,
   .SplitBoxSecond,
   .SplitBoxAbsolute > div {
-    height: 300px;
+    height: 220px;
     width: 100%;
   }
 }

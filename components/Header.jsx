@@ -7,7 +7,7 @@ import logo from '../public/images/logo/coolart-logo-border.png';
 import cn from 'classnames';
 
 // Hook
-function useWindowSize() {
+export function useWindowSize() {
   // Initialize state with undefined width/height so server and client renders match
   // Learn more here: https://joshwcomeau.com/react/the-perils-of-rehydration/
   const [windowSize, setWindowSize] = useState({
@@ -36,14 +36,6 @@ function useWindowSize() {
 export default function Header({ currentHref }) {
   const size = useWindowSize();
 
-  return size.width > 768 ? (
-    <WebHeader currentHref={currentHref} />
-  ) : (
-    <MobileHeader currentHref={currentHref} />
-  );
-}
-
-const WebHeader = ({ currentHref }) => {
   const [hasScrolled, setHasScrolled] = useState(false);
   useEffect(() => {
     function handleScroll() {
@@ -59,6 +51,15 @@ const WebHeader = ({ currentHref }) => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, [setHasScrolled, hasScrolled]);
+
+  return size.width > 768 ? (
+    <WebHeader hasScrolled={hasScrolled} currentHref={currentHref} />
+  ) : (
+    <MobileHeader hasScrolled={hasScrolled} currentHref={currentHref} />
+  );
+}
+
+const WebHeader = ({ currentHref, hasScrolled }) => {
   return (
     <header
       className={cn(styles.Header, {
@@ -94,52 +95,57 @@ const MobileHeader = ({ currentHref }) => {
     setMenuOpen(!menuOpen);
   };
   return (
-    <header
-      className={cn(styles.Header, {
-        [styles.scrolled]: true,
-      })}
-    >
-      <div className={styles.Wrapper}>
-        <div
-          className={cn(styles.HeaderIcon, {
-            [styles.scrolled]: true,
-          })}
-        >
-          <Image objectFit={'contain'} src={logo} alt='coolart logo' />
-        </div>
-        <button
-          onClick={handleMenu}
-          className={cn(styles.MenuButton, {
-            [styles.open]: menuOpen,
-          })}
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-
-        <navigation
-          className={cn(styles.MobileNavigation, {
-            [styles.MobileNavigationOpen]: menuOpen,
-          })}
-        >
-          {content.header.nav.map(({ text, href }) => (
-            <span
-              key={text}
-              className={currentHref === href ? styles.CurrentNav : styles.Nav}
-            >
-              <Link href={href}>{text}</Link>
-            </span>
-          ))}
-          <button
-            className={styles.CloseMenuNav}
-            onClick={() => setMenuOpen(false)}
+    <>
+      <div style={{ height: 70 }} />
+      <header
+        className={cn(styles.Header, {
+          [styles.scrolled]: true,
+        })}
+      >
+        <div className={styles.Wrapper}>
+          <div
+            className={cn(styles.HeaderIcon, {
+              [styles.scrolled]: true,
+            })}
           >
-            Close
+            <Image objectFit={'contain'} src={logo} alt='coolart logo' />
+          </div>
+          <button
+            onClick={handleMenu}
+            className={cn(styles.MenuButton, {
+              [styles.open]: menuOpen,
+            })}
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
           </button>
-        </navigation>
-      </div>
-    </header>
+
+          <navigation
+            className={cn(styles.MobileNavigation, {
+              [styles.MobileNavigationOpen]: menuOpen,
+            })}
+          >
+            {content.header.nav.map(({ text, href }) => (
+              <span
+                key={text}
+                className={
+                  currentHref === href ? styles.CurrentNav : styles.Nav
+                }
+              >
+                <Link href={href}>{text}</Link>
+              </span>
+            ))}
+            <button
+              className={styles.CloseMenuNav}
+              onClick={() => setMenuOpen(false)}
+            >
+              Close
+            </button>
+          </navigation>
+        </div>
+      </header>
+    </>
   );
 };

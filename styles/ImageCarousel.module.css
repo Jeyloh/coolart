@@ -2,15 +2,25 @@
   position: relative;
   width: 100%;
 }
+
 .Overlay {
   position: absolute;
-  height: 100%;
-  max-width: var(--max-page-width);
   margin: 0 auto;
-  left: calc(50% - (var(--max-page-width) / 2));
-  top: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 10;
+  width: 50vw;
+  left: calc(50% - 25vw);
+  height: 50vw;
+  top: calc(50% - 25vw);
+}
+
+@media screen and (max-width: 678px) {
+  .Overlay {
+    width: 50vw;
+    left: calc(50% - 25vw);
+    height: 50vw;
+    top: calc(50% - 25vw);
+  }
 }

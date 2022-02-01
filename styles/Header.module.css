@@ -4,6 +4,12 @@
   z-index: 15;
 }
 
+@media screen and (max-width: 678px) {
+  .Header.scrolled {
+    height: 70px;
+  }
+}
+
 .Wrapper {
   max-width: var(--max-page-width);
   padding: var(--spacing2);
@@ -13,6 +19,7 @@
   align-items: center;
   justify-content: space-between;
 }
+
 .HeaderIcon {
   transition: width 300ms ease-in-out;
   width: 200px;

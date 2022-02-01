@@ -3,9 +3,10 @@ import HtmlHead from '../components/Head';
 import Header from '../components/Header';
 import styles from '../styles/Home.module.css';
 import logo from '../public/images/logo/coolart-logo-border.png';
-import nybyen1 from '../public/images/portfoliogallery/nybyen1.jpg';
-import nybyen2 from '../public/images/portfoliogallery/henningolsen.jpg';
-import nybyen3 from '../public/images/portfoliogallery/nybyen3.jpg';
+import first from '../public/images/portfoliogallery/nybyen1.jpg';
+// import first from '../public/images/homepage_slider/first.jpg';
+// import second from '../public/images/homepage_slider/second.jpg';
+// import third from '../public/images/homepage_slider/third.jpg';
 import ImageCarousel from '../components/ImageCarousel';
 import content from '../content/no.json';
 import Image from 'next/image';
@@ -21,29 +22,24 @@ export default function Home() {
 
       <main className={styles.main}>
         <ImageCarousel
-          autoPlay={false}
+          autoPlay={true}
           images={[
             {
-              src: nybyen1,
+              src: first,
               alt: 'test',
             },
 
             // {
-            //   src: nybyen2,
+            //   src: second,
             //   alt: 'test',
             // },
             // {
-            //   src: nybyen3,
+            //   src: third,
             //   alt: 'test',
             // },
           ]}
         >
-          <Image
-            objectFit={'contain'}
-            height={400}
-            src={logo}
-            alt='coolart logo'
-          />
+          <Image objectFit={'contain'} src={logo} alt='coolart logo' />
         </ImageCarousel>
         <SplitBox />
         <div className={styles.Wrapper}>

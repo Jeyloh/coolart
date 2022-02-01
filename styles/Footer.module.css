@@ -29,9 +29,6 @@
   }
 }
 
-.Content {
-  width: var(--max-page-width);
-}
 .FooterLinks {
   display: flex;
   flex-direction: column;
