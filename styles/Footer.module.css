@@ -35,6 +35,7 @@
   border-left: 1px solid white;
   padding-left: var(--spacing2);
   width: calc(var(--mainWidth) / 2);
+  text-align: right;
 }
 
 .FooterLinks li {
@@ -42,4 +43,5 @@
 }
 .FooterLinks li a {
   font-size: var(--font-md);
+  border-bottom: 1px solid white;
 }
