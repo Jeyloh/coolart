@@ -4,9 +4,9 @@ import styles from '../styles/Sommerskolen.module.css';
 import content from '../content/no.json';
 import HtmlHead from '../components/Head';
 import Image from 'next/image';
-import image1Src from '../public/images/sommerskolen/1.jpg';
-import image2Src from '../public/images/sommerskolen/2.jpg';
-import image3Src from '../public/images/sommerskolen/KristiansandVagsbygd.jpg';
+import image1Src from '../public/images/sommerskolen/1.png';
+import image2Src from '../public/images/sommerskolen/2.png';
+import image3Src from '../public/images/sommerskolen/KristiansandVagsbygd.png';
 
 export default function Sommerskolen() {
   return (
