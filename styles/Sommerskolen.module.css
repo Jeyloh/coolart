@@ -1,5 +1,10 @@
-.Contact {
+.Sommerskolen {
 }
+
+.Image {
+  height: 500px;
+}
+
 .Wrapper {
   max-width: var(--max-page-width);
   padding: var(--containerPadding);
@@ -12,6 +17,7 @@
   padding: unset;
   text-indent: unset;
   list-style-type: unset;
+  line-height: 1.5em;
   margin-left: 1em;
 }
 
@@ -21,12 +27,62 @@
   padding: unset;
   text-indent: unset;
   list-style-type: unset;
-
+  line-height: 1.5em;
   margin-left: 2em;
+}
+
+.InitialRow {
+  display: flex;
+  gap: 1em;
+  margin-bottom: 2em;
+}
+
+.InitalBoxFirst {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+}
+.InitalBoxSecond {
+  width: 30%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+.ColorBoxRow {
+  display: flex;
+  margin: 2em 0;
 }
 
 .ImageRow {
   display: flex;
   gap: 1em;
   height: 400px;
+}
+
+.ColorBoxGray {
+  background-color: var(--gray-light);
+  padding: 1em;
+}
+.ColorBoxPink {
+  background-color: var(--pink-light);
+  padding: 1em;
+}
+
+@media only screen and (max-width: 680px) {
+  .InitialRow,
+  .ColorBoxRow,
+  .ImageRow {
+    flex-direction: column;
+  }
+
+  .ImageRow {
+    height: unset;
+  }
+
+  .InitalBoxFirst {
+    width: 100%;
+  }
+  .InitalBoxSecond {
+    width: 100%;
+  }
 }

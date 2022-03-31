@@ -5,6 +5,7 @@
 
 :root {
   --pink: #af4173;
+  --pink-light: #ffbedb;
   --blue: #2e86ab;
   --gradientBlue: linear-gradient(225deg, #2e86ab, #22a9e1),
     linear-gradient(180deg, #2e86ab, #2e86ab);
@@ -13,6 +14,7 @@
   --gradientPinkBlue: linear-gradient(3deg, #2e86ab, #af4173 67%);
   --dark: #404047;
   --gray: #b4b4b4;
+  --gray-light: #e4e3e3;
 
   --spacing1: 0.5em;
   --spacing2: 1em;

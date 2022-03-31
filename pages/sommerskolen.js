@@ -9,28 +9,28 @@ import image1Src from '../public/images/sommerskolen/1.jpg';
 import image2Src from '../public/images/sommerskolen/2.jpg';
 import image3Src from '../public/images/sommerskolen/KristiansandVagsbygd.jpg';
 
-export default function Contact() {
+export default function Sommerskolen() {
   return (
-    <div className={styles.Contact}>
+    <div className={styles.Sommerskolen}>
       <HtmlHead title={'CoolArt - Sommerskolen'} />
       <Header currentHref={'/sommerskolen'} />
       <main className={styles.Wrapper}>
         <h1>Sommerskolen</h1>
-        <div className={styles.ImageRow}>
-          <div style={{ width: '70%' }}>
+        <div className={styles.InitialRow}>
+          <div className={styles.InitalBoxFirst}>
             <h2>Om du fikk farge byen...</h2>
             <div>
               <p>
                 <b>Kurstittel:</b> Om du fikk farge byen
               </p>
               <p>
-                <b>Ansvarlig </b>organisasjon: Coolart
+                <b>Ansvarlig organisasjon:</b> Coolart
               </p>
               <p>
-                <b>Ansvarlig </b>person: Sedin Zunic
+                <b>Ansvarlig person:</b> Sedin Zunic
               </p>
               <p>
-                <b>e-</b>post: contact@coolart.no
+                <b>E-post:</b> contact@coolart.no
               </p>
               <p>
                 <b>Telefon:</b> 45835829/40009093
@@ -57,101 +57,138 @@ export default function Contact() {
               deg!
             </p>
           </div>
-          <div
-            style={{
-              height: '100%',
-              width: '30%',
-              display: 'flex',
-              justifyContent: 'flex-end',
-              alignItems: 'flex-end',
-            }}
-          >
-            <Image objectFit={'contain'} src={image2Src} alt='TODO HER' />
+          <div className={styles.InitalBoxSecond}>
+            <Image
+              objectFit={'contain'}
+              className={styles.Image}
+              src={image2Src}
+              alt='Spraymaling kvinne'
+            />
           </div>
         </div>
-        <div style={{ height: 200 }} />
         <div className={styles.ImageRow}>
           <Image
+            className={styles.Image}
             objectFit={'cover'}
             src={image1Src}
-            height={'500px'}
-            alt='TODO HER'
+            alt='Spraymaling mann'
           />
           <Image
+            className={styles.Image}
             objectFit={'cover'}
             src={image3Src}
-            height={'500px'}
-            alt='TODO HER'
+            alt='Spraymaling superjente'
           />
         </div>
 
-        <h2>Læringsutbytte</h2>
-        <ul className={styles.InfoList}>
-          <li>
-            Kurset gjør noe med vår forståelse for de estetiske fagenes plass og
-            muligheter både i og utenfor skoleverket.
-          </li>
+        <div className={styles.ColorBoxRow}>
+          <div className={styles.ColorBoxGray}>
+            <h2>Om kurset:</h2>
+            <p>
+              “Om du fikk farge byen” kursene kan gjennomføres i uke 26 og 32.
+            </p>
 
-          <li>
-            Kurset styrker de estetiske fags betydning både for individet og
-            fellesskapet gjennom erfaringene som dukker opp i dette kurset og
-            innenfor kunst- og kulturfeltet
-          </li>
+            <p>Kursene varer fra 09:00-15:00 mandag til fredag.</p>
 
-          <li>
-            CoolArt motiverer elevene til eget kunstfaglig arbeid og det har
-            sammenheng med at elev og lærestoff er i god dialog.{' '}
-          </li>
-          <li>
-            Kurset lyktes i å knytte det faglige innholdet til elevenes
-            personlige erfaringer.{' '}
-          </li>
-          <li>
-            Dette kunstfaglige kurset skaper en kunstfaglig interesse hos
-            elevene, og leder dem inn i deres egen skapende aktivitet.{' '}
-          </li>
+            <p>Vi tar ideelt imot 25 personer i hvert kurs</p>
 
-          <li>
-            Læringsprosessen fremstår med en egen integritet der verdien av
-            faget i seg selv er rådende.
-          </li>
-          <li>
-            Elevenes møte og deltakelse gjennom dette kurset gir kunnskap og
-            erfaring som kan bidra til større forståelse for temaet de har
-            utforsket.{' '}
-          </li>
-          <li>
-            Kurset tydeliggjør kunnskaps betydning av kunst i undervisning, og
-            motivasjonsfaktorer for kunstfaglig arbeid hos elevene.{' '}
-          </li>
-          <li>
-            Gjennom deltakelse i en kunstfaglig læringsprosess ledes elevene mot
-            en kunstfaglig erfaring.
-            <ul className={style.InfoList}>
+            <p>Vi er livssynsnøytrale og ikke-politisk.</p>
+
+            <p>
+              Fast base/ oppmøtested etter nærmere avtale med Kristiansand
+              kommune.
+            </p>
+
+            <p>
+              Vi tilbyr praktiske øvelser, fysisk aktivitet og aktiviteter
+              utendørs hver dag.
+            </p>
+
+            <p>
+              Vi bruker god tid på at alle skal finne seg til rette. Det å møte
+              nye mennesker med samme interesse er svært positivt med
+              Sommerskolen.
+            </p>
+
+            <p>
+              Våre kurs legges opp til aktiviteter som alle kan delta på. På
+              dette kurset er det mulig at barn med tilrettelagt behov kan
+              delta.
+            </p>
+          </div>
+
+          <div className={styles.ColorBoxPink}>
+            <h2>Læringsutbytte</h2>
+            <ul className={styles.InfoList}>
               <li>
-                Det er elevenes perspektiver, opplevelse, forståelse og
-                tilbakemeldinger av denne prosessen som gir grunnlag for
-                læringsutbytte.
+                Kurset gjør noe med vår forståelse for de estetiske fagenes
+                plass og muligheter både i og utenfor skoleverket.
               </li>
-            </ul>
-          </li>
-          <li>
-            Det er samarbeidet mellom profesjonelle kunstnere i møte med barn og
-            unge som gir dette kurset faglige tyngde som skaper trygghet og
-            motivasjon for alle involverte underveis. Elevene føler seg
-            privilegert i kunstners ledsagelse.{' '}
-          </li>
-          <li>
-            Kurset setter sine spor, og veiledere er takknemlige for alle
-            deltagernes innspill og utfordringer.
-          </li>
 
-          <ul className={style.InfoList}>
-            <li>
-              Dette gir alle involverte en stor personlig læringsmulighet.
-            </li>
-          </ul>
-        </ul>
+              <li>
+                Kurset styrker de estetiske fags betydning både for individet og
+                fellesskapet gjennom erfaringene som dukker opp i dette kurset
+                og innenfor kunst- og kulturfeltet
+              </li>
+
+              <li>
+                CoolArt motiverer elevene til eget kunstfaglig arbeid og det har
+                sammenheng med at elev og lærestoff er i god dialog.{' '}
+              </li>
+              <li>
+                Kurset lyktes i å knytte det faglige innholdet til elevenes
+                personlige erfaringer.{' '}
+              </li>
+              <li>
+                Dette kunstfaglige kurset skaper en kunstfaglig interesse hos
+                elevene, og leder dem inn i deres egen skapende aktivitet.{' '}
+              </li>
+
+              <li>
+                Læringsprosessen fremstår med en egen integritet der verdien av
+                faget i seg selv er rådende.
+              </li>
+              <li>
+                Elevenes møte og deltakelse gjennom dette kurset gir kunnskap og
+                erfaring som kan bidra til større forståelse for temaet de har
+                utforsket.{' '}
+              </li>
+              <li>
+                Kurset tydeliggjør kunnskaps betydning av kunst i undervisning,
+                og motivasjonsfaktorer for kunstfaglig arbeid hos elevene.{' '}
+              </li>
+              <li>
+                Gjennom deltakelse i en kunstfaglig læringsprosess ledes elevene
+                mot en kunstfaglig erfaring.
+                <ul className={style.InfoList}>
+                  <li>
+                    Det er elevenes perspektiver, opplevelse, forståelse og
+                    tilbakemeldinger av denne prosessen som gir grunnlag for
+                    læringsutbytte.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Det er samarbeidet mellom profesjonelle kunstnere i møte med
+                barn og unge som gir dette kurset faglige tyngde som skaper
+                trygghet og motivasjon for alle involverte underveis. Elevene
+                føler seg privilegert i kunstners ledsagelse.{' '}
+              </li>
+              <li>
+                Kurset setter sine spor, og veiledere er takknemlige for alle
+                deltagernes innspill og utfordringer.
+              </li>
+
+              <ul className={style.InfoList}>
+                <li>
+                  Dette gir alle involverte en stor personlig læringsmulighet.
+                </li>
+              </ul>
+            </ul>
+          </div>
+        </div>
+
+        <h2>Mer informasjon</h2>
 
         <p>
           Skolen skal la elevene utfolde skaperglede, engasjement og
@@ -218,33 +255,6 @@ export default function Contact() {
           prøve noe vanskelig.
         </p>
 
-        <p>“Om du fikk farge byen” kursene kan gjennomføres i uke 26 og 32.</p>
-
-        <p>Kursene varer fra 09:00-15:00 mandag til fredag.</p>
-
-        <p>Vi tar ideelt imot 25 personer i hver kurs</p>
-
-        <p>Vi er livssynsnøytrale og ikke-politisk.</p>
-
-        <p>
-          Fast base/ oppmøtested etter nærmere avtale med Kristiansand kommune.
-        </p>
-
-        <p>
-          Vi tilbyr praktiske øvelser, fysisk aktivitet og aktiviteter utendørs
-          hver dag.
-        </p>
-
-        <p>
-          Vi bruker god tid på at alle skal finne seg til rette. Det å møte nye
-          mennesker med samme interesse er svært positivt med Sommerskolen.
-        </p>
-
-        <p>
-          Våre kurs legges opp til aktiviteter som alle kan delta på. På dette
-          kurset er det mulig at barn med tilrettelagt behov kan delta.
-        </p>
-
         <h3>Helse/Sikkerhet</h3>
         <p>
           Vi bruker verneutstyr, masker og vi bruker de nye miljøvennlige
@@ -252,6 +262,7 @@ export default function Contact() {
           gjeldene på aktuelt tidspunkt. Vi spriter hender, bruker handsker og
           maske. Vi oppholder oss mye ute og holder avstand.
         </p>
+        <div style={{ height: '5em' }} />
       </main>
 
       <Footer />
