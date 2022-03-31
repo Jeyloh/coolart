@@ -10,8 +10,11 @@ export default function Contact() {
     <div className={styles.Contact}>
       <HtmlHead title={'CoolArt - Sommerskolen'} />
       <Header currentHref={'/sommerskolen'} />
-
-      <h1>Kommer mer snart</h1>
+      <main className={styles.Wrapper}>
+        <h1>Sommerskolen</h1>
+        <p>Kommer mer innhold snart</p>
+        <div style={{ height: '50vh' }} />
+      </main>
 
       <Footer />
     </div>
