@@ -1,0 +1,32 @@
+.Contact {
+}
+.Wrapper {
+  max-width: var(--max-page-width);
+  padding: var(--containerPadding);
+  margin: 0 auto;
+}
+
+.InfoList {
+  list-style: unset;
+  margin: unset;
+  padding: unset;
+  text-indent: unset;
+  list-style-type: unset;
+  margin-left: 1em;
+}
+
+.InfoList ul {
+  list-style: unset;
+  margin: unset;
+  padding: unset;
+  text-indent: unset;
+  list-style-type: unset;
+
+  margin-left: 2em;
+}
+
+.ImageRow {
+  display: flex;
+  gap: 1em;
+  height: 400px;
+}
