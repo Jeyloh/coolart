@@ -8,10 +8,10 @@ import CustomGoogleMap from '../components/GoogleMap';
 export default function Contact() {
   return (
     <div className={styles.Contact}>
-      <HtmlHead title={'CoolArt - Sommerskole'} />
-      <Header currentHref={'/sommerskole'} />
+      <HtmlHead title={'CoolArt - Sommerskolen'} />
+      <Header currentHref={'/sommerskolen'} />
 
-      <h1>kommer mer snart</h1>
+      <h1>Kommer mer snart</h1>
 
       <Footer />
     </div>
