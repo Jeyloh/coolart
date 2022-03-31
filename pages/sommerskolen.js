@@ -3,7 +3,6 @@ import Header from '../components/Header';
 import styles from '../styles/Sommerskolen.module.css';
 import content from '../content/no.json';
 import HtmlHead from '../components/Head';
-import { style } from 'd3';
 import Image from 'next/image';
 import image1Src from '../public/images/sommerskolen/1.jpg';
 import image2Src from '../public/images/sommerskolen/2.jpg';
