@@ -159,7 +159,7 @@ export default function Sommerskolen() {
               <li>
                 Gjennom deltakelse i en kunstfaglig læringsprosess ledes elevene
                 mot en kunstfaglig erfaring.
-                <ul className={style.InfoList}>
+                <ul className={styles.InfoList}>
                   <li>
                     Det er elevenes perspektiver, opplevelse, forståelse og
                     tilbakemeldinger av denne prosessen som gir grunnlag for
@@ -178,7 +178,7 @@ export default function Sommerskolen() {
                 deltagernes innspill og utfordringer.
               </li>
 
-              <ul className={style.InfoList}>
+              <ul className={styles.InfoList}>
                 <li>
                   Dette gir alle involverte en stor personlig læringsmulighet.
                 </li>
