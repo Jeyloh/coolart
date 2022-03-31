@@ -36,9 +36,9 @@ export default function Sommerskolen() {
               </p>
             </div>
             <p>
-              Gatekunst er i vinden som aldri før og sommerskolen i Kristiansand
-              har fått selveste Coolart til å holde kurs. På dette kurset lærer
-              vi bort våre beste triks sånn at du selv mestrer gatekunst og at
+              Gatekunst er i vinden som aldri før og sommerskolen har fått
+              selveste Coolart til å holde kurs. På dette kurset lærer vi bort
+              våre beste triks sånn at du selv mestrer gatekunst og at
               gatekunstmiljøet blomstrer. Vi vil bruke gatekunsten til å
               etablere gode holdninger og videreføre verdien av gatekunst. Alle
               deltagerne får kursbevis. Så meld deg på, dette kurset vil du ikke
